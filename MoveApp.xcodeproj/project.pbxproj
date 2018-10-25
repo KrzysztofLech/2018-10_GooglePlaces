@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		689C66B76F46545D35F444AB /* Pods_MoveApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E34AB751396DDBFB46525E /* Pods_MoveApp.framework */; };
 		6B0D473A21819F7B00D02D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D473921819F7B00D02D9F /* AppDelegate.swift */; };
-		6B0D473C21819F7B00D02D9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D473B21819F7B00D02D9F /* ViewController.swift */; };
 		6B0D473F21819F7B00D02D9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D473D21819F7B00D02D9F /* Main.storyboard */; };
 		6B0D474121819F7B00D02D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D474021819F7B00D02D9F /* Assets.xcassets */; };
 		6B0D474421819F7B00D02D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D474221819F7B00D02D9F /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		5FF4839719FEF6BA8AA25D73 /* Pods-MoveApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoveApp/Pods-MoveApp.release.xcconfig"; sourceTree = "<group>"; };
 		6B0D473621819F7B00D02D9F /* MoveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B0D473921819F7B00D02D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6B0D473B21819F7B00D02D9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6B0D473E21819F7B00D02D9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B0D474021819F7B00D02D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B0D474321819F7B00D02D9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,13 +69,76 @@
 			isa = PBXGroup;
 			children = (
 				6B0D473921819F7B00D02D9F /* AppDelegate.swift */,
-				6B0D473B21819F7B00D02D9F /* ViewController.swift */,
 				6B0D473D21819F7B00D02D9F /* Main.storyboard */,
+				6B93AE292181A1C2006DF2D6 /* Models */,
+				6B93AE282181A1BB006DF2D6 /* ViewModels */,
+				6B93AE272181A1B2006DF2D6 /* Views */,
+				6B93AE262181A1A4006DF2D6 /* Controllers */,
+				6B93AE252181A198006DF2D6 /* Other */,
 				6B0D474021819F7B00D02D9F /* Assets.xcassets */,
 				6B0D474221819F7B00D02D9F /* LaunchScreen.storyboard */,
 				6B0D474521819F7B00D02D9F /* Info.plist */,
 			);
 			path = MoveApp;
+			sourceTree = "<group>";
+		};
+		6B93AE252181A198006DF2D6 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6B93AE2C2181A2BF006DF2D6 /* Services */,
+				6B93AE2B2181A233006DF2D6 /* Extensions */,
+				6B93AE2A2181A228006DF2D6 /* Helpers */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6B93AE262181A1A4006DF2D6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6B93AE272181A1B2006DF2D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6B93AE282181A1BB006DF2D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6B93AE292181A1C2006DF2D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6B93AE2A2181A228006DF2D6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6B93AE2B2181A233006DF2D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6B93AE2C2181A2BF006DF2D6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		800CED414F43B9F3FD5BF219 /* Frameworks */ = {
@@ -202,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B0D473C21819F7B00D02D9F /* ViewController.swift in Sources */,
 				6B0D473A21819F7B00D02D9F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +414,10 @@
 				DEVELOPMENT_TEAM = 2UGBQYC9Y9;
 				INFOPLIST_FILE = MoveApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kl.24abc.pl.MoveApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -371,7 +434,10 @@
 				DEVELOPMENT_TEAM = 2UGBQYC9Y9;
 				INFOPLIST_FILE = MoveApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kl.24abc.pl.MoveApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
