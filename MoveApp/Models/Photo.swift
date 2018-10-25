@@ -9,7 +9,13 @@
 import Foundation
 
 struct Photo: Decodable {
-    let height: Int
     let width: Int
-    let photo_reference: String
+    let height: Int
+    let photoReference: String
+    
+    enum CodingKeys: String, CodingKey {
+        case width
+        case height
+        case photoReference = "photo_reference"
+    }
 }

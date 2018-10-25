@@ -10,6 +10,12 @@ import Foundation
 
 struct NearbyPlaces: Decodable {
     let status: String
-    let next_page_token: String?
+    let nextPageToken: String?
     let results: [Place]
+    
+    enum CodingKeys: String, CodingKey {
+        case status
+        case nextPageToken = "next_page_token"
+        case results
+    }
 }
