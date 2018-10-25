@@ -33,10 +33,26 @@
                     <view key="view" contentMode="scaleToFill" id="Sye-VG-hbT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wgO-2H-AsW">
+                                <rect key="frame" x="37.5" y="233.5" width="300" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="tVl-eO-fOI"/>
+                                    <constraint firstAttribute="height" constant="200" id="tcy-pB-fau"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wgO-2H-AsW" firstAttribute="centerX" secondItem="Sye-VG-hbT" secondAttribute="centerX" id="7up-6K-NYj"/>
+                            <constraint firstItem="wgO-2H-AsW" firstAttribute="centerY" secondItem="Sye-VG-hbT" secondAttribute="centerY" id="JJE-Lb-3Tn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fec-Tq-Ajm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Google Places" id="Dme-Hu-eo9"/>
+                    <connections>
+                        <outlet property="placeImageView" destination="wgO-2H-AsW" id="S7T-mF-yHE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FE6-B8-ZzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
