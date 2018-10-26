@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FirstTabViewController: UIViewController {
     
@@ -19,11 +20,13 @@ class FirstTabViewController: UIViewController {
     
     private var viewModel = GooglePlaceViewModel()
     private var placeType: String = "hotel"
+    private let locationManager = CLLocationManager()
     
     //MARK: - Life Cycles Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationSettings()
         setupTableView()
         downloadData()
     }
@@ -33,6 +36,12 @@ class FirstTabViewController: UIViewController {
 //    }
     
     //MARK: - Other Methods
+    
+    private func locationSettings() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
     
     private func setupTableView() {
         tableView.register(UINib(nibName: PlaceTableViewCell.toString(), bundle: nil),
@@ -64,7 +73,6 @@ class FirstTabViewController: UIViewController {
         tableView.reloadData()
         downloadData()
     }
-    
 }
 
 //MARK: - TableView Data Source Methods
@@ -94,5 +102,14 @@ extension FirstTabViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension FirstTabViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let newLocation = locations.last {
+            print(newLocation.coordinate.latitude, newLocation.coordinate.longitude)
+        }
     }
 }
