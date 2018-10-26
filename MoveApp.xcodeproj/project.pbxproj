@@ -25,6 +25,7 @@
 		6B93AE422182286D006DF2D6 /* GooglePlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE412182286D006DF2D6 /* GooglePlaceViewModel.swift */; };
 		6B93AE452182D54C006DF2D6 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE432182D54C006DF2D6 /* PlaceTableViewCell.swift */; };
 		6B93AE462182D54C006DF2D6 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B93AE442182D54C006DF2D6 /* PlaceTableViewCell.xib */; };
+		6B93AE4821831913006DF2D6 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE4721831913006DF2D6 /* NoDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		6B93AE412182286D006DF2D6 /* GooglePlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceViewModel.swift; sourceTree = "<group>"; };
 		6B93AE432182D54C006DF2D6 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		6B93AE442182D54C006DF2D6 /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
+		6B93AE4721831913006DF2D6 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		76E34AB751396DDBFB46525E /* Pods_MoveApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D6E75BDD3BEE002BB30716 /* Pods-MoveApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveApp/Pods-MoveApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +134,7 @@
 			children = (
 				6B93AE432182D54C006DF2D6 /* PlaceTableViewCell.swift */,
 				6B93AE442182D54C006DF2D6 /* PlaceTableViewCell.xib */,
+				6B93AE4721831913006DF2D6 /* NoDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				6B93AE2E2181A327006DF2D6 /* UIView+extensions.swift in Sources */,
 				6B93AE4021820612006DF2D6 /* Location.swift in Sources */,
 				6B93AE342181A6DE006DF2D6 /* APIService.swift in Sources */,
+				6B93AE4821831913006DF2D6 /* NoDataView.swift in Sources */,
 				6B93AE302181A34E006DF2D6 /* UIViewController+extensions.swift in Sources */,
 				6B93AE452182D54C006DF2D6 /* PlaceTableViewCell.swift in Sources */,
 				6B93AE3A2181F2C7006DF2D6 /* Place.swift in Sources */,

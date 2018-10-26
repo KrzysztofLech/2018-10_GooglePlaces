@@ -108,12 +108,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Google Place" image="icon_search" id="Dme-Hu-eo9"/>
                     <connections>
-                        <outlet property="noDataView" destination="0Xi-V8-d7e" id="BFF-Eu-7FG"/>
+                        <outlet property="noDataView" destination="0Xi-V8-d7e" id="GWN-Xv-7W8"/>
                         <outlet property="tableView" destination="4z4-JM-BpM" id="hl3-EQ-2HO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FE6-B8-ZzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="0Xi-V8-d7e" userLabel="NoData View">
+                <view contentMode="scaleToFill" id="0Xi-V8-d7e" userLabel="NoData View" customClass="NoDataView" customModule="MoveApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -141,6 +141,10 @@
                         <constraint firstItem="acO-IZ-YZO" firstAttribute="leading" secondItem="Ii9-o3-c5W" secondAttribute="leading" id="uPk-aD-ZVB"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Ii9-o3-c5W"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="51O-fp-rb8" id="9gh-iY-Tgm"/>
+                        <outlet property="label" destination="kGu-i0-Drs" id="4Uw-vF-8Bm"/>
+                    </connections>
                 </view>
             </objects>
             <point key="canvasLocation" x="916" y="-144.3778110944528"/>

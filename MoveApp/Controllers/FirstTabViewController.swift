@@ -14,21 +14,21 @@ class FirstTabViewController: UIViewController {
     //MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var noDataView: UIView!
+    @IBOutlet var noDataView: NoDataView!
     
     //MARK: - Properties
     
     private var viewModel = GooglePlaceViewModel()
     private var placeType: String = "hotel"
     private let locationManager = CLLocationManager()
+    fileprivate var userLocation: Location = Constants.warsawLocation
     
     //MARK: - Life Cycles Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationSettings()
         setupTableView()
-        downloadData()
+        locationSettings()
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -46,19 +46,21 @@ class FirstTabViewController: UIViewController {
     private func setupTableView() {
         tableView.register(UINib(nibName: PlaceTableViewCell.toString(), bundle: nil),
                            forCellReuseIdentifier: PlaceTableViewCell.toString())
-        setupBackgroundTableView()
+        noDataView.state = .waitingForGPS
+        tableView.backgroundView = noDataView
+    }
+    
+    private func downloadData() {
+        noDataView.state = .waitingForDownloading
+        viewModel.fetchData(withLocation: userLocation, andType: placeType) { [weak self] in
+            self?.setupBackgroundTableView()
+            self?.tableView.reloadData()
+        }
     }
     
     private func setupBackgroundTableView() {
         let placesCount = viewModel.placesCount
-        tableView.backgroundView = placesCount > 0 ? nil : noDataView
-    }
-
-    private func downloadData() {
-        viewModel.fetchData(withLocation: Constants.warsawLocation, andType: placeType) { [weak self] in
-            self?.setupBackgroundTableView()
-            self?.tableView.reloadData()
-        }
+        noDataView.state = placesCount > 0 ? NoDataViewState.hidden : NoDataViewState.waitingForDownloading
     }
     
     @IBAction func typeButtonAction(_ sender: UIButton) {
@@ -110,6 +112,10 @@ extension FirstTabViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.last {
             print(newLocation.coordinate.latitude, newLocation.coordinate.longitude)
+            locationManager.stopUpdatingLocation()
+            userLocation = Location(latitude: newLocation.coordinate.latitude,
+                               longitude: newLocation.coordinate.longitude)
+            downloadData()
         }
     }
 }
