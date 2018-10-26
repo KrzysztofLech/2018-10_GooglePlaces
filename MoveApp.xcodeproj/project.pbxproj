@@ -22,6 +22,7 @@
 		6B93AE3C218205D1006DF2D6 /* NearbyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE3B218205D1006DF2D6 /* NearbyPlaces.swift */; };
 		6B93AE3E218205FA006DF2D6 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE3D218205FA006DF2D6 /* Photo.swift */; };
 		6B93AE4021820612006DF2D6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE3F21820612006DF2D6 /* Location.swift */; };
+		6B93AE422182286D006DF2D6 /* GooglePlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B93AE412182286D006DF2D6 /* GooglePlaceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		6B93AE3B218205D1006DF2D6 /* NearbyPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlaces.swift; sourceTree = "<group>"; };
 		6B93AE3D218205FA006DF2D6 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		6B93AE3F21820612006DF2D6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		6B93AE412182286D006DF2D6 /* GooglePlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceViewModel.swift; sourceTree = "<group>"; };
 		76E34AB751396DDBFB46525E /* Pods_MoveApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D6E75BDD3BEE002BB30716 /* Pods-MoveApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveApp/Pods-MoveApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 		6B93AE282181A1BB006DF2D6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6B93AE412182286D006DF2D6 /* GooglePlaceViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				6B93AE3A2181F2C7006DF2D6 /* Place.swift in Sources */,
 				6B93AE3E218205FA006DF2D6 /* Photo.swift in Sources */,
 				6B93AE3C218205D1006DF2D6 /* NearbyPlaces.swift in Sources */,
+				6B93AE422182286D006DF2D6 /* GooglePlaceViewModel.swift in Sources */,
 				6B93AE322181A369006DF2D6 /* UIApplication+extensions.swift in Sources */,
 				6B0D473A21819F7B00D02D9F /* AppDelegate.swift in Sources */,
 				6B93AE382181B897006DF2D6 /* FirstTabViewController.swift in Sources */,
