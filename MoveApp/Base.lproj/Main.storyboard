@@ -15,23 +15,23 @@
             <objects>
                 <viewController id="ltk-2I-zVg" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8TU-gD-Bh7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zBM-er-KX6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Żabka" id="9lO-HD-2M1"/>
+                    <tabBarItem key="tabBarItem" title="Żabka" image="icon_frog" id="9lO-HD-2M1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHP-QM-I6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="520"/>
         </scene>
-        <!--Google Places-->
+        <!--Google Place-->
         <scene sceneID="r9a-XF-wJ4">
             <objects>
                 <viewController id="fBC-wg-S3O" customClass="FirstTabViewController" customModule="MoveApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sye-VG-hbT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMX-Rs-yRt" userLabel="Top Container">
@@ -106,7 +106,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fec-Tq-Ajm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Google Places" id="Dme-Hu-eo9"/>
+                    <tabBarItem key="tabBarItem" title="Google Place" image="icon_search" id="Dme-Hu-eo9"/>
                     <connections>
                         <outlet property="noDataView" destination="0Xi-V8-d7e" id="BFF-Eu-7FG"/>
                         <outlet property="tableView" destination="4z4-JM-BpM" id="hl3-EQ-2HO"/>
@@ -149,10 +149,12 @@
         <scene sceneID="hEY-8n-WQa">
             <objects>
                 <tabBarController id="a00-47-nI9" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZiL-Jg-fD1">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ZiL-Jg-fD1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.099353325869999995" green="0.0" blue="0.81692073170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="fBC-wg-S3O" kind="relationship" relationship="viewControllers" id="Yn8-18-8cd"/>
@@ -164,4 +166,8 @@
             <point key="canvasLocation" x="-36" y="188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_frog" width="39.5" height="30"/>
+        <image name="icon_search" width="45" height="45"/>
+    </resources>
 </document>
