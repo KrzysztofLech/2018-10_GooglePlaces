@@ -16,13 +16,18 @@ class GooglePlaceViewModel {
     // MARK: - Private Properties
     
     private let apiService: APIService
-    private var nearbyPlaces: NearbyPlaces!
-    
+    private var _nearbyPlaces: NearbyPlaces?
     
     // MARK: - Public Properties
-    
+    var nearbyPlaces: NearbyPlaces {
+        if _nearbyPlaces != nil {
+            return _nearbyPlaces!
+        } else {
+            return NearbyPlaces.init(status: "", nextPageToken: nil, results: [])
+        }
+    }
     var placesCount: Int {
-        return nearbyPlaces?.results.count ?? 0
+        return nearbyPlaces.results.count
     }
     
     // MARK: - Init
@@ -36,7 +41,7 @@ class GooglePlaceViewModel {
     func fetchData(withLocation location: Location, andType type: String, completion: @escaping Completion) {
         let url = apiService.nearbyPlacesRequest(location: location, andType: type)
         apiService.fetchNearbyPlaces(url: url) { [weak self] nearbyPlaces in
-            self?.nearbyPlaces = nearbyPlaces
+            self?._nearbyPlaces = nearbyPlaces
             DispatchQueue.main.async {
                 completion()
             }
@@ -65,5 +70,9 @@ class GooglePlaceViewModel {
             photoReference = ""
         }
         return (place.name, photoReference)
+    }
+    
+    func removeData() {
+        _nearbyPlaces = nil
     }
 }

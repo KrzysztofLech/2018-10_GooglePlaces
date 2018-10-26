@@ -18,7 +18,7 @@ class FirstTabViewController: UIViewController {
     //MARK: - Properties
     
     private var viewModel = GooglePlaceViewModel()
-    private var placeType: String = "restaurant"
+    private var placeType: String = "hotel"
     
     //MARK: - Life Cycles Methods
     
@@ -37,21 +37,31 @@ class FirstTabViewController: UIViewController {
     private func setupTableView() {
         tableView.register(UINib(nibName: PlaceTableViewCell.toString(), bundle: nil),
                            forCellReuseIdentifier: PlaceTableViewCell.toString())
-        tableView.backgroundView = noDataView
+        setupBackgroundTableView()
+    }
+    
+    private func setupBackgroundTableView() {
+        let placesCount = viewModel.placesCount
+        tableView.backgroundView = placesCount > 0 ? nil : noDataView
     }
 
     private func downloadData() {
         viewModel.fetchData(withLocation: Constants.warsawLocation, andType: placeType) { [weak self] in
-            let placesCount = self?.viewModel.placesCount ?? 0
-            self?.tableView.backgroundView = placesCount > 0 ? nil : self?.noDataView
+            self?.setupBackgroundTableView()
             self?.tableView.reloadData()
         }
     }
     
     @IBAction func typeButtonAction(_ sender: UIButton) {
-        guard let buttonTitle = sender.titleLabel?.text else { return }
-        placeType = buttonTitle.lowercased()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        guard
+            let buttonTitle = sender.titleLabel?.text?.lowercased(),
+            placeType != buttonTitle
+            else { return }
+        
+        placeType = buttonTitle
+        viewModel.removeData()
+        setupBackgroundTableView()
+        tableView.reloadData()
         downloadData()
     }
     
