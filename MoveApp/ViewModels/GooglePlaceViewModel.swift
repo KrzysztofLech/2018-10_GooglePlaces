@@ -9,14 +9,17 @@
 import UIKit
 
 typealias Completion = (()->())
-typealias CompletionImage = ((_ image: UIImage)->())
+typealias CompletionImage = ((UIImage)->())
+typealias CompletionLocation = ((Location)->())
 
 class GooglePlaceViewModel {
     
     // MARK: - Private Properties
     
     private let apiService: APIService
+    private let gpsService: GPSService
     private var _nearbyPlaces: NearbyPlaces?
+    private var _userLocation: Location = Constants.warsawLocation
     
     // MARK: - Public Properties
     var nearbyPlaces: NearbyPlaces {
@@ -26,14 +29,20 @@ class GooglePlaceViewModel {
             return NearbyPlaces.init(status: "", nextPageToken: nil, results: [])
         }
     }
+    
     var placesCount: Int {
         return nearbyPlaces.results.count
     }
     
+    var userLocation: Location {
+        return _userLocation
+    }
+    
     // MARK: - Init
     
-    init(apiService: APIService = APIService()) {
+    init(apiService: APIService = APIService(), gpsService: GPSService = GPSService()) {
         self.apiService = apiService
+        self.gpsService = gpsService
     }
     
     // MARK: - Networking
@@ -74,5 +83,14 @@ class GooglePlaceViewModel {
     
     func removeData() {
         _nearbyPlaces = nil
+    }
+    
+    // MARK: - GPS Methods
+    
+    func findUserLocation(completion: @escaping Completion) {
+        gpsService.getUserLocation { [weak self] userLocation in
+            self?._userLocation = userLocation
+            completion()
+        }
     }
 }

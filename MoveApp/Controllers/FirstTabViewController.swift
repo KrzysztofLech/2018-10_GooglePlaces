@@ -20,27 +20,21 @@ class FirstTabViewController: UIViewController {
     
     private var viewModel = GooglePlaceViewModel()
     private var placeType: String = "hotel"
-    private let locationManager = CLLocationManager()
-    fileprivate var userLocation: Location = Constants.warsawLocation
     
     //MARK: - Life Cycles Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        locationSettings()
+        findUserLocation()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
     
     //MARK: - Other Methods
     
-    private func locationSettings() {
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+    private func findUserLocation() {
+        viewModel.findUserLocation { [weak self] in
+            self?.downloadData()
+        }
     }
     
     private func setupTableView() {
@@ -52,7 +46,7 @@ class FirstTabViewController: UIViewController {
     
     private func downloadData() {
         noDataView.state = .waitingForDownloading
-        viewModel.fetchData(withLocation: userLocation, andType: placeType) { [weak self] in
+        viewModel.fetchData(withLocation: viewModel.userLocation, andType: placeType) { [weak self] in
             self?.setupBackgroundTableView()
             self?.tableView.reloadData()
         }
@@ -104,18 +98,5 @@ extension FirstTabViewController: UITableViewDataSource {
         }
         
         return cell
-    }
-}
-
-extension FirstTabViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let newLocation = locations.last {
-            print(newLocation.coordinate.latitude, newLocation.coordinate.longitude)
-            locationManager.stopUpdatingLocation()
-            userLocation = Location(latitude: newLocation.coordinate.latitude,
-                               longitude: newLocation.coordinate.longitude)
-            downloadData()
-        }
     }
 }
