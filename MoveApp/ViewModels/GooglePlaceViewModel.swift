@@ -44,7 +44,10 @@ class GooglePlaceViewModel {
     }
     
     func fetchImage(withWidth width: Int, andPlaceIndex index: Int, completion: @escaping CompletionImage) {
-        let photoReference = nearbyPlaces.results[index].photos[0].photoReference
+        guard
+            let photos = nearbyPlaces.results[index].photos else { return }
+        
+        let photoReference = photos[0].photoReference
         let url = self.apiService.imageRequest(width: width, photoReference: photoReference)
         apiService.fetchPlaceImage(url: url) { image in
             completion(image)
@@ -53,7 +56,14 @@ class GooglePlaceViewModel {
     
     // MARK: - Data Model Methods
     
-    func getPlaceData(withIndex index: Int) -> Place {
-        return nearbyPlaces.results[index]
+    func getPlaceData(withIndex index: Int) -> (name: String, photoReference: String) {
+        let place = nearbyPlaces.results[index]
+        let photoReference: String
+        if let photos = place.photos {
+            photoReference = photos[0].photoReference
+        } else {
+            photoReference = ""
+        }
+        return (place.name, photoReference)
     }
 }

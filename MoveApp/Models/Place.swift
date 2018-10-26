@@ -11,8 +11,8 @@ import Foundation
 struct Place: Decodable {
     let name: String
     let address: String
-    let rating: Double
-    let photos: [Photo]
+    let rating: Double?
+    let photos: [Photo]?
     
     enum CodingKeys: String, CodingKey {
         case name
